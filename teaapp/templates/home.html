@@ -1,0 +1,13 @@
+{% extends 'shared/base.html' %}
+{% block content %}
+
+<h1>I'm a list of teas!</h1>
+
+    {% for tea in teas %}
+
+        <p>{{ tea.name }} - {{ tea.flavor }}</p>
+        
+    {% endfor %}
+
+
+{% endblock content %}
