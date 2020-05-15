@@ -2,6 +2,7 @@
 {% block content %}
 
 <h1>I'm a list of teas!</h1>
+<a href="{% url 'teaapp:tea_form' %}">Add a New Tea</a>
 
     {% for tea in teas %}
 
