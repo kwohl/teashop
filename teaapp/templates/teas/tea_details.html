@@ -7,7 +7,11 @@
 <h3>Available Packaging</h3>
 {% for packaging in packaging_options %}
     <p>{{ packaging.name }}: Lasts {{ packaging.longevity_in_months }} months</p>
-    
+    <form action="{% url 'teaapp:tea_details' packaging.id %}" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="actual_method" value="DELETE">
+    <button>Delete</button>
+    </form>
 {% endfor %}
     
 <a href="{% url 'teaapp:tea_list' %}">Back</a>
