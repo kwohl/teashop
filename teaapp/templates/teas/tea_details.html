@@ -1,0 +1,15 @@
+{% extends 'shared/base.html' %}
+{% block content %}
+
+<h1>{{ tea.name }}</h1>
+<h4>{{ tea.flavor }}</h4>
+
+<h3>Available Packaging</h3>
+{% for packaging in packaging_options %}
+    <p>{{ packaging.name }}: Lasts {{ packaging.longevity_in_months }} months</p>
+    
+{% endfor %}
+    
+<a href="{% url 'teaapp:tea_list' %}">Back</a>
+
+{% endblock content %}
