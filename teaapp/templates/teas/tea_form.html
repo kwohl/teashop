@@ -2,29 +2,39 @@
 {% load static %}
 
 {% block content %}
+{% if tea.id is None %}
+    <form action="{% url 'teaapp:tea_list' %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <label for="name">Name: </label>
+            <input id="name" type="text" name="name">
+        </fieldset>
+        <fieldset>
+            <label for="flavor">Flavor: </label>
+            <input id="flavor" type="text" name="flavor">
+        </fieldset>
 
-<form action="{% url 'teaapp:tea_list' %}" method="post">
-    {% csrf_token %}
-    <fieldset>
-        <label for="name">Name: </label>
-        <input id="name" type="text" name="name">
-    </fieldset>
-    <fieldset>
-        <label for="flavor">Flavor: </label>
-        <input id="flavor" type="text" name="flavor">
-    </fieldset>
+        <!-- <fieldset>
+        <label for="packaging">Assign to packaging: </label>
+        <select id="packaging" type="text" name="packaging">
+            {% for packaging in packaging_list %}
+                <option value={{ packaging.id }}>{{ packaging }}</option>
+            {% endfor %}
+        </select>
+        </fieldset> -->
 
-    <!-- <fieldset>
-    <label for="packaging">Assign to packaging: </label>
-    <select id="packaging" type="text" name="packaging">
-        {% for packaging in packaging_list %}
-            <option value={{ packaging.id }}>{{ packaging }}</option>
-        {% endfor %}
-    </select>
-    </fieldset> -->
+        <input type="submit" value="Add Tea" />
+    </form>
+{% elif tea.id is not None %}
+    <form action="{% url 'teaapp:tea_details' tea.id %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <label for="flavor">Flavor: </label>
+            <input id="flavor" type="text" name="flavor">
+        </fieldset>
+        <input type="hidden" name="actual_method" value="PUT">
+        <input type="submit" value="Update Flavor" />
+    </form>   
+{% endif %}
 
-    <input type="submit" value="Add Tea" />
-</form>
-</section>
-</div>
 {% endblock content %}

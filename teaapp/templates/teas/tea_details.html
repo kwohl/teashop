@@ -13,7 +13,13 @@
     <button>Delete</button>
     </form>
 {% endfor %}
-    
+<br><br>
+    <form action="{% url 'teaapp:tea_edit_form' tea.id %}" method="GET">
+    {% csrf_token %}
+    <button>Edit</button>
+    </form>
+<!-- <a href="{% url 'teaapp:tea_edit_form' tea.id %}"><button>Edit</button></a> -->
+<br><br>
 <a href="{% url 'teaapp:tea_list' %}">Back</a>
 
 {% endblock content %}

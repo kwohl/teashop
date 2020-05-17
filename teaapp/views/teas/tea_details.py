@@ -69,4 +69,21 @@ def tea_details(request, tea_id):
                 WHERE id = ?
                 """, (tea_id,))
 
-            return redirect(reverse('teaapp:tea_list'))    
+            return redirect(reverse('teaapp:tea_list'))
+        
+        if (
+            "actual_method" in form_data
+            and form_data["actual_method"] == "PUT"
+        ):   
+            with sqlite3.connect(Connection.db_path) as conn:
+                    db_cursor = conn.cursor()
+                    db_cursor.execute("""
+                    UPDATE teaapp_tea
+                    SET flavor = ?
+                    WHERE id = ?
+                    """,
+                    (
+                        form_data['flavor'],
+                        tea_id,
+                    ))
+            return redirect(reverse('teaapp:tea_list'))
