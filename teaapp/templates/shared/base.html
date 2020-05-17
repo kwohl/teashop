@@ -7,13 +7,15 @@
     <meta charset="utf-8">
     <title>Tea Shop</title>
 
+    <link rel="stylesheet" href="{% static 'styles/base.css' %}" type="text/css" media="screen" />
+
     {% block css %}
     {% endblock %}
 
 </head>
 
 <body>
-
+<img id='homeImage' src="{% static 'images/shop-illustration.jpg' %}"/>   
     {% block content %}
     {% endblock %}
 
