@@ -2,7 +2,9 @@
 {% load static %}
 
 {% block content %}
+<div class='content'>
 {% if tea.id is None %}
+    <div class='form'>
     <form action="{% url 'teaapp:tea_list' %}" method="post">
         {% csrf_token %}
         <fieldset>
@@ -25,7 +27,9 @@
 
         <input type="submit" value="Add Tea" />
     </form>
+    </div>
 {% elif tea.id is not None %}
+    <div class='form'>
     <form action="{% url 'teaapp:tea_details' tea.id %}" method="post">
         {% csrf_token %}
         <fieldset>
@@ -34,7 +38,8 @@
         </fieldset>
         <input type="hidden" name="actual_method" value="PUT">
         <input type="submit" value="Update Flavor" />
-    </form>   
+    </form> 
+    </div>  
 {% endif %}
-
+</div>
 {% endblock content %}

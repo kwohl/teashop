@@ -1,6 +1,8 @@
 {% extends 'shared/base.html' %}
 {% block content %}
+{% load static %}
 
+<div class='content'>
 <h1>I'm a list of teas!</h1>
 <a href="{% url 'teaapp:tea_form' %}">Add a New Tea</a>
 
@@ -11,5 +13,5 @@
         
     {% endfor %}
 
-
+<div>
 {% endblock content %}
