@@ -30,7 +30,7 @@
         {% csrf_token %}
         <fieldset>
             <label for="flavor">Flavor: </label>
-            <input id="flavor" type="text" name="flavor">
+            <input id="flavor" type="text" name="flavor" value="{{ tea.flavor }}">
         </fieldset>
         <input type="hidden" name="actual_method" value="PUT">
         <input type="submit" value="Update Flavor" />
