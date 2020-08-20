@@ -1,6 +1,6 @@
 # Welcome to the Tea Shop
 
-You have been tasked to build an app that will allow the employees of the tea shop to manage the different teas that the shop sells.
+This project was to build an app that will allow the employees of the tea shop to manage the different teas that the shop sells.
 
 ## Project Setup
 
@@ -47,11 +47,11 @@ You have been tasked to build an app that will allow the employees of the tea sh
   * `python manage.py runserver`
 
 
-## Requirements
-
-You need to meet the following requirements in the order they are listed since they build on each other. After each requirement has been met, please make sure you make a commit with a detailed commit message explaining what feature has been completed. You **do not** need to worry about authentication for this application.
+## Features
 
 1. When a user navigates to the root URL of the application (`/`), they should see a list of all the teas in alphabetical order.
+
+![Alphabetical List](teaapp/static/images/teashop.JPG)
 
 1. Above the list of teas, provide a link that presents the user with a form to add a new tea by providing the name and flavor. When the form is submitted, the user should be directed to `/` and should see the newly added tea in the list.
 
